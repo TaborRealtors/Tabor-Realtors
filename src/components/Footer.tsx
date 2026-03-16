@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Music2 } from "lucide-react";
 import Link from "next/link";
 import { XLogo } from "@/components/icons/XLogo";
@@ -18,12 +19,16 @@ export function Footer({ onNavigate }: FooterProps) {
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-4 flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded bg-white">
-                <span className="font-semibold text-primary">NR</span>
-              </div>
-              <span className="text-xl font-semibold">Tabor Realtors</span>
-            </div>
+            <Link href="/" className="mb-4 inline-flex items-center gap-3" aria-label="Tabor Realtors home">
+              <Image
+                src="/tabor-realtors-logo.jpg"
+                alt="Tabor Realtors"
+                width={64}
+                height={64}
+                className="h-16 w-16 object-contain"
+              />
+              <span className="text-xl font-semibold text-white">Tabor Realtors</span>
+            </Link>
             <p className="mb-4 text-white/80">
               Kenya&apos;s premium real estate destination. We connect you with exceptional properties across the nation.
             </p>
@@ -82,7 +87,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 flex-shrink-0" />
                 <a href="tel:+254708085761" className="text-white/80 transition-colors hover:text-white">
-                  +254 717 069 619
+                  +254 708 085 761
                 </a>
               </li>
               <li className="flex items-center space-x-2">

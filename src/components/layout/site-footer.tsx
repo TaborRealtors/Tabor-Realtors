@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, MessageCircle, Music2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -29,7 +30,16 @@ export default function SiteFooter() {
       <div className="section-shell py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold">Tabor Realtors</h3>
+            <Link href="/" className="inline-flex items-center gap-3" aria-label="Tabor Realtors home">
+              <Image
+                src="/tabor-realtors-logo.jpg"
+                alt="Tabor Realtors"
+                width={64}
+                height={64}
+                className="h-16 w-16 object-contain"
+              />
+              <span className="text-xl font-semibold text-white">Tabor Realtors</span>
+            </Link>
             <p className="text-sm text-white/80">
               We curate developments, rentals, and commercial spaces that elevate how you
               live and work in Nairobi.
@@ -66,7 +76,7 @@ export default function SiteFooter() {
             <p>
               Phone:{" "}
               <a href="tel:+254708085761" className="hover:text-white">
-                +254 717 069 619
+                +254 708 085 761
               </a>
             </p>
           </div>

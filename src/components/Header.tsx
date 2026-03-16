@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,10 +38,15 @@ export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
     <header className="sticky top-0 z-50 border-b border-border bg-white">
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded bg-primary">
-              <span className="font-semibold text-white">NR</span>
-            </div>
+          <Link href="/" className="flex items-center gap-3" aria-label="Tabor Realtors home">
+            <Image
+              src="/tabor-realtors-logo.jpg"
+              alt="Tabor Realtors"
+              width={64}
+              height={64}
+              className="h-16 w-16 object-contain"
+              priority
+            />
             <span className="text-xl font-semibold text-[#0D402D]">Tabor Realtors</span>
           </Link>
 

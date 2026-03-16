@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu } from "lucide-react";
@@ -25,8 +26,16 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent side="left" className="w-72">
         <SheetHeader>
-          <SheetTitle className="text-xl font-semibold text-brand">
-            Tabor Realtors
+          <SheetTitle>
+            <Link href="/" className="flex items-center" onClick={() => setOpen(false)} aria-label="Tabor Realtors home">
+              <Image
+                src="/tabor-realtors-logo.jpg"
+                alt="Tabor Realtors"
+                width={64}
+                height={64}
+                className="h-16 w-16 object-contain"
+              />
+            </Link>
           </SheetTitle>
         </SheetHeader>
         <div className="mt-6 flex flex-col gap-4">

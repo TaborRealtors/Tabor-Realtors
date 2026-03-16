@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -27,8 +28,16 @@ export default function SiteHeader() {
       <div className="section-shell flex items-center justify-between py-4">
         <div className="flex items-center gap-4">
           <MobileNav />
-          <Link href="/" className="text-xl font-bold text-brand">
-            Tabor Realtors
+          <Link href="/" className="flex items-center gap-3" aria-label="Tabor Realtors home">
+            <Image
+              src="/tabor-realtors-logo.jpg"
+              alt="Tabor Realtors"
+              width={64}
+              height={64}
+              className="h-16 w-16 object-contain"
+              priority
+            />
+            <span className="text-xl font-semibold text-brand">Tabor Realtors</span>
           </Link>
         </div>
         <MainNav />
