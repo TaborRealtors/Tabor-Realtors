@@ -98,10 +98,10 @@ export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
               <a href="https://www.instagram.com/niahavens" className="text-foreground transition-colors hover:text-primary" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://x.com/NiaRealtors" className="text-foreground transition-colors hover:text-primary" aria-label="X">
+              <a href="https://x.com/TaborRealtors" className="text-foreground transition-colors hover:text-primary" aria-label="X">
                 <XLogo className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/company/nia-realtors/" className="text-foreground transition-colors hover:text-primary" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/tabor-realtors/" className="text-foreground transition-colors hover:text-primary" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
               <a href="https://www.tiktok.com/@niahavens" className="text-foreground transition-colors hover:text-primary" aria-label="TikTok">

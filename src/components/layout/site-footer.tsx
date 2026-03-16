@@ -17,10 +17,10 @@ const quickLinks = [
 const socials = [
   { label: "Facebook", icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578951969809&rdid=Ncb82fbVg2pO9Ndn&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19mWADvSJL%2F#" },
   { label: "Instagram", icon: Instagram, href: "https://www.instagram.com/niahavens" },
-  { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/nia-realtors/" },
+  { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/tabor-realtors/" },
   { label: "TikTok", icon: Music2, href: "https://www.tiktok.com/@niahavens" },
   { label: "WhatsApp", icon: MessageCircle, href: "https://wa.me/254708085761" },
-  { label: "X", icon: XLogo, href: "https://x.com/NiaRealtors" },
+  { label: "X", icon: XLogo, href: "https://x.com/TaborRealtors" },
 ];
 
 export default function SiteFooter() {
@@ -29,7 +29,7 @@ export default function SiteFooter() {
       <div className="section-shell py-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold">Nia Realtors</h3>
+            <h3 className="text-xl font-semibold">Tabor Realtors</h3>
             <p className="text-sm text-white/80">
               We curate developments, rentals, and commercial spaces that elevate how you
               live and work in Nairobi.
@@ -59,14 +59,14 @@ export default function SiteFooter() {
             <p>Mon - Sat: 8:30am - 6:00pm</p>
             <p>
               Email:{" "}
-              <a href="mailto:hello@niarealtors.com" className="hover:text-white">
-                hello@niarealtors.com
+              <a href="mailto:hello@taborrealtors.com" className="hover:text-white">
+                hello@taborrealtors.com
               </a>
             </p>
             <p>
               Phone:{" "}
               <a href="tel:+254708085761" className="hover:text-white">
-                +254 708 085 761
+                +254 717 069 619
               </a>
             </p>
           </div>
@@ -108,7 +108,7 @@ export default function SiteFooter() {
             ))}
           </div>
           <p className="text-sm text-white/70">
-            © 2025 Nia Realtors. All Rights Reserved.
+            © 2025 Tabor Realtors. All Rights Reserved.
           </p>
         </div>
       </div>

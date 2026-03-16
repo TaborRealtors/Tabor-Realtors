@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nia Realtors | Real Estate in Nairobi",
+  title: "Tabor Realtors | Real Estate in Nairobi",
   description:
-    "Discover Nairobi developments, rentals, and commercial spaces with Nia Realtors.",
+    "Discover Nairobi developments, rentals, and commercial spaces with Tabor Realtors.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={cn(geistSans.variable, geistMono.variable, "antialiased")}>
         <AppChrome>{children}</AppChrome>
       </body>

@@ -5,15 +5,14 @@ export const teamMembers: TeamMember[] = [
     id: "team-pyume",
     slug: "pyume-wambua",
     name: "Pyume Wambua",
-    role: "Founder & Lead Broker",
+    role: "Chief Executive Officer, Tabor Realtors",
     shortBio:
-      "Seasoned broker focused on lifestyle-led developments and prime rentals across Nairobi.",
+      "Chief Executive Officer focused on trusted advisory, quality listings, and long-term client value.",
     fullBio:
-      "Nia has spent a decade guiding clients through Nairobi's evolving property market. She partners closely with developers from land acquisition to handover, ensuring every listing is presented with clarity, transparency, and warmth.",
+      "Pyume is the Chief Executive Officer at Tabor Realtors and has spent years guiding clients through Kenya's evolving property market. She works closely with buyers, sellers, and developers to ensure every listing is presented with clarity, transparency, and care.",
     headshot:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80",
-    heroImage:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=1400&q=80",
+      "/team-members/pyume-wambua.jpg",
+    heroImage: "/team-members/pyume-wambua.jpg",
     quote: "Building dreams, creating value—one conversation at a time.",
   },
   {
@@ -26,24 +25,22 @@ export const teamMembers: TeamMember[] = [
     fullBio:
       "Mike blends finance, valuation, and on-the-ground intelligence to match investors with resilient assets. He leads feasibility studies and supports clients through negotiations.",
     headshot:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
-    heroImage:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
+      "/team-members/mark-nzau.jpg",
+    heroImage: "/team-members/mark-nzau.jpg",
     quote: "Smart capital needs clear information and decisive execution.",
   },
   {
     id: "team-simon",
     slug: "simon-waigwa",
     name: "Simon Waigwa",
-    role: "Client Experience Lead",
+    role: "Managing Partner, Tabor Realtors",
     shortBio:
-      "Creates smooth journeys for tenants and buyers—from first inquiry to key handover.",
+      "Leads client strategy and partnerships with a focus on trusted advisory and long-term value.",
     fullBio:
-      "Leah oversees service delivery, coordinates viewings, and ensures every client feels heard. She manages our concierge program and community events for residents.",
+      "Simon is a Managing Partner at Tabor Realtors with deep experience supporting clients across Kenya's real estate market. He leads relationship management, strategic partnerships, and client advisory services to ensure every transaction is handled with clarity and care.",
     headshot:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
-    heroImage:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80",
-    quote: "Real estate is personal—care is the real differentiator.",
+      "/team-members/simon-waigwa.jpg",
+    heroImage: "/team-members/simon-waigwa.jpg",
+    quote: "Strong partnerships and trusted advice create lasting value.",
   },
 ];

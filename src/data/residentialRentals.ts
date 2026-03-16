@@ -2,68 +2,40 @@ import { ResidentialRental } from "@/types/realEstate";
 
 export const residentialRentals: ResidentialRental[] = [
   {
-    id: "rent-riverside-loft",
-    slug: "riverside-loft",
-    title: "Riverside Loft | 3 Bedroom + DSQ",
+    id: "rent-junction-garden",
+    slug: "junction-garden",
+    title: "JUNCTION GARDENS | 3 Bedroom Townhouse",
     locationRegion: "Nairobi",
-    locationArea: "Riverside",
+    locationArea: "Lavington",
     bedrooms: 3,
     bathrooms: 3,
-    sizeSqm: 185,
-    pricePerMonth: 260000,
+    sizeSqm: 0,
+    pricePerMonth: 160000,
     currency: "KES",
-    status: "Now Letting",
-    amenities: [
-      "Heated pool",
-      "Backup generator",
-      "High-speed lifts",
-      "Gym",
-      "DSQ",
-    ],
+    status: "Available",
+    amenities: [],
     galleryImages: [
-      "https://images.unsplash.com/photo-1505691938895-1f4e30bca8f4?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-22.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-27.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-56.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-57.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-65.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-69.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-75.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-97.jpg",
+      "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-98.jpg",
     ],
     description:
-      "Sun-filled corner apartment with floor-to-ceiling windows, open kitchen, ensuite bedrooms, and DSQ. Secure compound close to Lavington and Westlands.",
-  },
-  {
-    id: "rent-kilimani-duplex",
-    slug: "kilimani-duplex",
-    title: "Kilimani Duplex | 4 Bedroom Sky Villa",
-    locationRegion: "Nairobi",
-    locationArea: "Kilimani",
-    bedrooms: 4,
-    bathrooms: 4,
-    sizeSqm: 240,
-    pricePerMonth: 320000,
-    currency: "KES",
-    status: "Now Letting",
-    amenities: ["Sky lounge", "Pool", "Full backup", "Fingerprint access"],
-    galleryImages: [
-      "https://images.unsplash.com/photo-1505691938895-83fbcb106bce?auto=format&fit=crop&w=1400&q=80",
-      "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=80",
-    ],
-    description:
-      "Elegant duplex with double-height living, panoramic city views, and premium European finishes. Steps from Adlife Plaza and Yaya Centre.",
-  },
-  {
-    id: "rent-parklands-2br",
-    slug: "parklands-2br",
-    title: "Parklands | 2 Bedroom Modern",
-    locationRegion: "Nairobi",
-    locationArea: "Parklands",
-    bedrooms: 2,
-    bathrooms: 2,
-    sizeSqm: 118,
-    pricePerMonth: 140000,
-    currency: "KES",
-    status: "Waitlisting",
-    amenities: ["Gym", "Borehole", "Fibre-ready"],
-    galleryImages: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80",
-    ],
-    description:
-      "Bright, efficient layout ideal for professionals. Close to Westlands and UN Avenue with easy access to schools and shopping.",
-  },
+      "Junction Gardens is a 3-bedroom townhouse rental in Lavington, available at KES 160,000 per month.",
+  }
 ];
+
+const rentalPriority = ["junction-garden"];
+residentialRentals.sort((a, b) => {
+  const ai = rentalPriority.indexOf(a.slug);
+  const bi = rentalPriority.indexOf(b.slug);
+  if (ai === -1 && bi === -1) return 0;
+  if (ai === -1) return 1;
+  if (bi === -1) return -1;
+  return ai - bi;
+});

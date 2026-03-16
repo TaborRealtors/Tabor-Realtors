@@ -28,7 +28,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-4">
           <MobileNav />
           <Link href="/" className="text-xl font-bold text-brand">
-            Nia Realtors
+            Tabor Realtors
           </Link>
         </div>
         <MainNav />
@@ -52,7 +52,7 @@ export default function SiteHeader() {
             <Instagram className="h-5 w-5" />
           </a>
           <a
-            href="https://x.com/NiaRealtors"
+            href="https://x.com/TaborRealtors"
             target="_blank"
             rel="noreferrer"
             className="text-text-dark hover:text-brand"
@@ -61,7 +61,7 @@ export default function SiteHeader() {
             <XLogo className="h-5 w-5" />
           </a>
           <a
-            href="https://www.linkedin.com/company/nia-realtors/"
+            href="https://www.linkedin.com/company/tabor-realtors/"
             target="_blank"
             rel="noreferrer"
             className="text-text-dark hover:text-brand"

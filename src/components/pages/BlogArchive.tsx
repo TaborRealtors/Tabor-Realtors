@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { BlogCard } from "@/components/BlogCard";
+import { teamMembers } from "@/data/team";
 
 interface BlogArchiveProps {
   onNavigate: (page: string, id?: string) => void;
@@ -10,6 +11,9 @@ interface BlogArchiveProps {
 
 export function BlogArchive({ onNavigate }: BlogArchiveProps) {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const pyume = teamMembers.find((member) => member.slug === "pyume-wambua");
+  const simon = teamMembers.find((member) => member.slug === "simon-waigwa");
+  const mark = teamMembers.find((member) => member.slug === "mark-nzau");
 
   const categories = [
     { id: "all", label: "All Posts" },
@@ -20,14 +24,14 @@ export function BlogArchive({ onNavigate }: BlogArchiveProps) {
 
   const blogPosts = [
     {
-      id: "investing-kenya-2025",
-      image: "https://images.unsplash.com/photo-1759428807275-b798a80e2801?auto=format&fit=max&w=1600&q=80",
-      title: "Investing in Kenya's Real Estate Market in 2025",
-      excerpt: "Discover the key trends and opportunities shaping Kenya's property market this year.",
-      author: "Sarah Kamau",
-      authorImage:
-        "https://images.unsplash.com/photo-1763479169474-728a7de108c3?auto=format&fit=max&w=400&q=80",
-      date: "Dec 1, 2025",
+      id: "property-investment-that-builds-long-term-wealth",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80",
+      title: "Investment That Builds Long-Term Wealth",
+      excerpt:
+        "Property investment can build financial freedom through rental income, capital appreciation, and disciplined risk management.",
+      author: pyume?.name ?? "Pyume Wambua",
+      authorImage: pyume?.headshot ?? "/team-members/pyume-wambua.jpg",
+      date: "Feb 23, 2026",
       readTime: "5 min read",
       views: 1234,
       comments: 23,
@@ -35,72 +39,33 @@ export function BlogArchive({ onNavigate }: BlogArchiveProps) {
       category: "Property Investment",
     },
     {
-      id: "top-neighborhoods",
-      image: "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
-      title: "Top 5 Neighborhoods in Nairobi for Young Professionals",
-      excerpt: "Find the perfect location that matches your lifestyle and budget.",
-      author: "James Mwangi",
-      authorImage:
-        "https://images.unsplash.com/photo-1627161684850-52a7d958f8d7?auto=format&fit=max&w=400&q=80",
-      date: "Nov 28, 2025",
-      readTime: "7 min read",
+      id: "desire-lifestyle-and-the-property-you-choose",
+      image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
+      title: "Desire, Lifestyle, and the Property You Choose",
+      excerpt:
+        "Lifestyle property choices should align design, comfort, amenities, and location with long-term personal priorities.",
+      author: simon?.name ?? "Simon Waigwa",
+      authorImage: simon?.headshot ?? "/team-members/simon-waigwa.jpg",
+      date: "Feb 23, 2026",
+      readTime: "5 min read",
       views: 2156,
       comments: 45,
       likes: 167,
       category: "Design & Lifestyle",
     },
     {
-      id: "development-timelines",
-      image: "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80",
-      title: "Understanding Property Development Timelines in Kenya",
-      excerpt: "What to expect when investing in off-plan developments.",
-      author: "Grace Wanjiru",
-      authorImage:
-        "https://images.unsplash.com/photo-1763479169474-728a7de108c3?auto=format&fit=max&w=400&q=80",
-      date: "Nov 25, 2025",
-      readTime: "6 min read",
+      id: "market-trends-shaping-smart-buying-decisions",
+      image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
+      title: "Market Trends Shaping Smart Buying Decisions",
+      excerpt:
+        "Reading demand, pricing, supply, and interest-rate signals helps buyers and investors make clearer decisions.",
+      author: mark?.name ?? "Mark Nzau",
+      authorImage: mark?.headshot ?? "/team-members/mark-nzau.jpg",
+      date: "Feb 23, 2026",
+      readTime: "5 min read",
       views: 987,
       comments: 12,
       likes: 54,
-      category: "Property Investment",
-    },
-    {
-      id: "home-buying-guide",
-      image: "https://images.unsplash.com/photo-1669333490889-194e8f46a766?auto=format&fit=max&w=1600&q=80",
-      title: "First-Time Home Buyer's Guide for Kenya",
-      excerpt: "Essential tips and insights for making your first property purchase.",
-      author: "Sarah Kamau",
-      date: "Nov 20, 2025",
-      readTime: "8 min read",
-      views: 1876,
-      comments: 34,
-      likes: 142,
-      category: "Property Investment",
-    },
-    {
-      id: "interior-trends",
-      image: "https://images.unsplash.com/photo-1620086464194-5127366b51ea?auto=format&fit=max&w=1600&q=80",
-      title: "2025 Interior Design Trends for Kenyan Homes",
-      excerpt: "Transform your space with these contemporary design trends.",
-      author: "James Mwangi",
-      date: "Nov 15, 2025",
-      readTime: "5 min read",
-      views: 1543,
-      comments: 28,
-      likes: 98,
-      category: "Design & Lifestyle",
-    },
-    {
-      id: "rental-market-analysis",
-      image: "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
-      title: "Nairobi Rental Market Analysis Q4 2025",
-      excerpt: "Comprehensive insights into rental prices and market dynamics.",
-      author: "David Omondi",
-      date: "Nov 10, 2025",
-      readTime: "10 min read",
-      views: 2341,
-      comments: 56,
-      likes: 203,
       category: "Market Trends",
     },
   ];

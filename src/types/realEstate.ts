@@ -1,5 +1,5 @@
 export type AvailabilityStatus = "Available" | "Reserved" | "Sold";
-export type RentalStatus = "Now Letting" | "Waitlisting";
+export type RentalStatus = "Now Letting" | "Waitlisting" | "Available";
 
 export interface Location {
   region: string;

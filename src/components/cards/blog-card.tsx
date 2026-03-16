@@ -2,6 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+const blogDateFormatter = new Intl.DateTimeFormat("en-KE", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
 interface BlogCardProps {
   title: string;
   excerpt: string;
@@ -46,7 +53,7 @@ export function BlogCard({
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <span>{author}</span>
           <span>•</span>
-          <span>{new Date(date).toLocaleDateString()}</span>
+          <span>{blogDateFormatter.format(new Date(date))}</span>
           <span>•</span>
           <span>{readTime} min read</span>
         </div>

@@ -8,12 +8,36 @@ interface TeamProfileProps {
 }
 
 export function TeamProfile({ onNavigate }: TeamProfileProps) {
+  const profile = {
+    name: "Mark Nzau",
+    role: "Head of Investments",
+    email: "mark@taborrealtors.co.ke",
+    phone: "+254 724 224 793",
+    heroImage: "/team-members/mark-nzau.jpg",
+    headshot: "/team-members/mark-nzau.jpg",
+    quote:
+      "Smart capital needs clear information and decisive execution.",
+    bio: [
+      "Mark leads investments at Tabor Realtors, specializing in income-generating assets and structured deals across Nairobi.",
+      "With a background in finance and valuation, he pairs data-driven analysis with on-the-ground market intelligence to guide investors to resilient opportunities.",
+      "Mark drives feasibility studies, capital stacks, and negotiations, ensuring every client decision is supported by clarity, transparency, and speed.",
+      "He is passionate about helping clients diversify portfolios into high-performing real estate while managing risk responsibly.",
+    ],
+    specializations: [
+      "Income-Generating Assets",
+      "Commercial & Mixed-Use",
+      "Investment Advisory",
+      "Feasibility & Valuation",
+      "Capital Markets",
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <section className="relative h-[500px] overflow-hidden">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1763478958776-ebd04b6459ee?auto=format&fit=max&w=1600&q=80"
-          alt="Sarah Kamau"
+          src={profile.heroImage}
+          alt={profile.name}
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
@@ -24,16 +48,16 @@ export function TeamProfile({ onNavigate }: TeamProfileProps) {
               <span className="mx-2">/</span>
               <button onClick={() => onNavigate("team")} className="hover:underline">Our Team</button>
               <span className="mx-2">/</span>
-              <span>Sarah Kamau</span>
+              <span>{profile.name}</span>
             </nav>
           </div>
         </div>
         <div className="absolute bottom-8 left-0 right-0">
           <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
             <h1 className="mb-2 text-4xl md:text-5xl" style={{ color: "#FFFFFF", fontWeight: 600 }}>
-              Sarah Kamau
+              {profile.name}
             </h1>
-            <p className="text-xl text-white/90">Managing Director</p>
+            <p className="text-xl text-white/90">{profile.role}</p>
           </div>
         </div>
       </section>
@@ -43,8 +67,8 @@ export function TeamProfile({ onNavigate }: TeamProfileProps) {
           <div className="lg:col-span-1">
             <div className="relative mb-6 h-[400px] overflow-hidden rounded-lg shadow-lg">
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1763479169474-728a7de108c3?auto=format&fit=max&w=1600&q=80"
-                alt="Sarah Kamau"
+                src={profile.headshot}
+                alt={profile.name}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -55,19 +79,19 @@ export function TeamProfile({ onNavigate }: TeamProfileProps) {
               <div className="space-y-3">
                 <div className="flex items-center text-muted-foreground">
                   <Mail className="mr-3 h-5 w-5 text-primary" />
-                  <a href="mailto:sarah@niarealtors.co.ke" className="transition-colors hover:text-primary">
-                    sarah@niarealtors.co.ke
+                  <a href={`mailto:${profile.email}`} className="transition-colors hover:text-primary">
+                    {profile.email}
                   </a>
                 </div>
                 <div className="flex items-center text-muted-foreground">
                   <Phone className="mr-3 h-5 w-5 text-primary" />
-                  <a href="tel:+254700111111" className="transition-colors hover:text-primary">
-                    +254 700 111 111
+                  <a href={`tel:${profile.phone.replace(/\\s+/g, "")}`} className="transition-colors hover:text-primary">
+                    {profile.phone}
                   </a>
                 </div>
                 <div className="flex items-center text-muted-foreground">
                   <Linkedin className="mr-3 h-5 w-5 text-primary" />
-                  <a href="https://www.linkedin.com/company/nia-realtors/" className="transition-colors hover:text-primary">
+                  <a href="https://www.linkedin.com/company/tabor-realtors/" className="transition-colors hover:text-primary">
                     Connect on LinkedIn
                   </a>
                 </div>
@@ -83,29 +107,9 @@ export function TeamProfile({ onNavigate }: TeamProfileProps) {
               Biography
             </h2>
             <div className="prose max-w-none space-y-4 text-muted-foreground">
-              <p>
-                Sarah Kamau is the Managing Director of Nia Realtors, bringing over 15 years of experience in Kenya&apos;s
-                real estate industry. Under her leadership, Nia Realtors has become one of the most trusted names in
-                property sales and rentals across Nairobi and beyond.
-              </p>
-              <p>
-                With a Bachelor&apos;s degree in Business Administration from the University of Nairobi and an MBA from
-                Strathmore Business School, Sarah combines academic excellence with practical industry knowledge. Her
-                career began in property valuation before transitioning to sales.
-              </p>
-              <p>
-                Sarah&apos;s approach is built on integrity, expertise, and client satisfaction. She believes every
-                property transaction is a life-changing moment and advocates for ethical practices and transparency.
-              </p>
-              <p>
-                Her expertise spans residential developments, commercial properties, and investment advisory. She has
-                closed deals worth over KSh 5 billion and is passionate about making property ownership accessible to
-                young professionals and first-time buyers.
-              </p>
-              <p>
-                Beyond her professional achievements, Sarah mentors young women in real estate and speaks at industry
-                conferences on market trends and ethics. She enjoys family time, travel, architecture, and running.
-              </p>
+              {profile.bio.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="mt-12">
@@ -113,13 +117,7 @@ export function TeamProfile({ onNavigate }: TeamProfileProps) {
                 Specializations
               </h3>
               <div className="flex flex-wrap gap-2">
-                {[
-                  "Luxury Residential",
-                  "Commercial Properties",
-                  "Investment Advisory",
-                  "Property Development",
-                  "Market Analysis",
-                ].map((item) => (
+                {profile.specializations.map((item) => (
                   <span key={item} className="rounded-full bg-secondary px-4 py-2 text-sm">
                     {item}
                   </span>
@@ -132,14 +130,13 @@ export function TeamProfile({ onNavigate }: TeamProfileProps) {
 
       <section className="bg-primary py-20 text-white">
         <div className="mx-auto max-w-[1280px] px-4 text-center sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <div className="mb-6 text-6xl opacity-50">"</div>
-            <blockquote className="mb-6 text-2xl italic">
-              Real estate is not just about properties—it&apos;s about people, dreams, and building lasting relationships.
-              Every client deserves honesty, expertise, and unwavering dedication.
-            </blockquote>
-            <cite className="text-lg not-italic">— Sarah Kamau</cite>
-          </div>
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-6 text-6xl opacity-50">"</div>
+              <blockquote className="mb-6 text-2xl italic">
+                {profile.quote}
+              </blockquote>
+              <cite className="text-lg not-italic">— {profile.name}</cite>
+            </div>
         </div>
       </section>
     </div>

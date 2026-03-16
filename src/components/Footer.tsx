@@ -31,8 +31,8 @@ export function Footer({ onNavigate }: FooterProps) {
               {[
                 { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578951969809&rdid=Ncb82fbVg2pO9Ndn&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19mWADvSJL%2F#" },
                 { icon: Instagram, href: "https://www.instagram.com/niahavens" },
-                { icon: XLogo, href: "https://x.com/NiaRealtors" },
-                { icon: Linkedin, href: "https://www.linkedin.com/company/nia-realtors/" },
+                { icon: XLogo, href: "https://x.com/TaborRealtors" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/tabor-realtors/" },
                 { icon: Music2, href: "https://www.tiktok.com/@niahavens" },
               ].map(({ icon: Icon, href }) => (
                 <a
@@ -82,7 +82,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 flex-shrink-0" />
                 <a href="tel:+254708085761" className="text-white/80 transition-colors hover:text-white">
-                  +254 708 085 761
+                  +254 717 069 619
                 </a>
               </li>
               <li className="flex items-center space-x-2">

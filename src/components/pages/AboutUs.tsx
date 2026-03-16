@@ -13,14 +13,14 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
       <section className="relative h-[500px] overflow-hidden">
         <ImageWithFallback
           src="https://images.unsplash.com/photo-1581093805071-a04e696db334?auto=format&fit=crop&w=1600&q=80"
-          alt="About Nia Realtors"
+          alt="About Tabor Realtors"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="mx-auto max-w-[1280px] px-4 text-center text-white sm:px-6 lg:px-8">
             <h1 className="mb-4 text-4xl md:text-6xl" style={{ color: "#FFFFFF", fontWeight: 600 }}>
-              About Nia Realtors
+              About Tabor Realtors
             </h1>
             <p className="mx-auto max-w-3xl text-xl text-white/90">
               Kenya&apos;s premier real estate destination, dedicated to excellence and integrity
@@ -74,7 +74,7 @@ export function AboutUs({ onNavigate }: AboutUsProps) {
               Our Philosophy
             </h2>
             <p className="mb-4 text-muted-foreground">
-              At Nia Realtors, we believe that real estate is more than just transactions—it&apos;s about building
+              At Tabor Realtors, we believe that real estate is more than just transactions—it&apos;s about building
               relationships, understanding dreams, and creating lasting value for our clients.
             </p>
             <p className="text-muted-foreground">

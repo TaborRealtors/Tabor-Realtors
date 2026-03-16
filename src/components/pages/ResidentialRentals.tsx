@@ -21,90 +21,38 @@ export function ResidentialRentals({ onNavigate, onEnquire }: ResidentialRentals
 
   const rentals = [
     {
-      id: "kilimani-apartment",
+      id: "junction-garden",
       images: [
-        "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Now Letting",
-      name: "Kilimani Executive Apartment",
-      location: "Kilimani, Nairobi",
-      bedrooms: 2,
-      bathrooms: 2,
-      size: "1,400 sqft",
-      price: "KSh 120,000",
-    },
-    {
-      id: "lavington-home",
-      images: [
-        "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1669333490889-194e8f46a766?auto=format&fit=max&w=1600&q=80",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-22.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-27.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-56.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-57.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-65.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-69.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-75.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-97.jpg",
+        "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-98.jpg",
       ],
       status: "Available",
-      name: "Lavington Family Home",
+      name: "JUNCTION GARDENS",
       location: "Lavington, Nairobi",
-      bedrooms: 4,
-      bathrooms: 3,
-      size: "3,000 sqft",
-      price: "KSh 280,000",
-    },
-    {
-      id: "westlands-studio",
-      images: [
-        "https://images.unsplash.com/photo-1662454419736-de132ff75638?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1620086464194-5127366b51ea?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Available",
-      name: "Westlands Modern Studio",
-      location: "Westlands, Nairobi",
-      bedrooms: 1,
-      bathrooms: 1,
-      size: "650 sqft",
-      price: "KSh 65,000",
-    },
-    {
-      id: "karen-villa",
-      images: [
-        "https://images.unsplash.com/photo-1569571480156-6c3901ef7500?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Now Letting",
-      name: "Karen Luxury Villa",
-      location: "Karen, Nairobi",
-      bedrooms: 5,
-      bathrooms: 5,
-      size: "4,500 sqft",
-      price: "KSh 450,000",
-    },
-    {
-      id: "runda-townhouse",
-      images: [
-        "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1662454419736-de132ff75638?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Available",
-      name: "Runda Townhouse",
-      location: "Runda, Nairobi",
       bedrooms: 3,
       bathrooms: 3,
-      size: "2,100 sqft",
-      price: "KSh 200,000",
-    },
-    {
-      id: "kileleshwa-apartment",
-      images: [
-        "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1620086464194-5127366b51ea?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Available",
-      name: "Kileleshwa Apartment",
-      location: "Kileleshwa, Nairobi",
-      bedrooms: 2,
-      bathrooms: 2,
-      size: "1,300 sqft",
-      price: "KSh 95,000",
-    },
+      size: "3 Bedroom Townhouse",
+      price: "KES 160,000",
+      description: "3-bedroom townhouse in Lavington, available to rent at KES 160,000.",
+    }
   ];
+
+  const rentalPriority = ["junction-garden"];
+  rentals.sort((a, b) => {
+    const ai = rentalPriority.indexOf(a.id);
+    const bi = rentalPriority.indexOf(b.id);
+    if (ai === -1 && bi === -1) return 0;
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
 
   return (
     <div className="min-h-screen bg-background">

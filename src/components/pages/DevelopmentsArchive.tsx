@@ -19,90 +19,166 @@ export function DevelopmentsArchive({ onNavigate, onEnquire }: DevelopmentsArchi
 
   const developments = [
     {
-      id: "gardens-residence",
+      id: "citi-rise",
       images: [
-        "https://images.unsplash.com/photo-1669333490889-194e8f46a766?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A1.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A10.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A13.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A2.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A3.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A4.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A5.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A6.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A7.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A8.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A9.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/bal.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST1.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST2.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST3.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST4.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST5.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST6.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST62.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST7.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST8.jpg",
+        "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST9.jpg",
       ],
-      status: "Just Launched",
-      name: "The Gardens Residence",
-      location: "Karen, Nairobi",
+      status: "Available",
+      name: "CITI RISE",
+      location: "Westlands, Mogotio Road",
       bedrooms: 3,
       bathrooms: 3,
-      size: "2,400 sqft",
-      price: "KSh 28.5M",
+      size: "2-3 BR (86.77-142.39 sqm)",
+      price: "From KSh 11.7M",
+      description:
+        "Modern Westlands apartments with spacious living rooms, balconies, all en-suite bedrooms, study/office, rooftop pool & gym, high-speed lifts, and strong security.",
     },
     {
-      id: "westlands-heights",
+      id: "jasper-westlands-muthithi-road",
       images: [
-        "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0014.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0015.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0016.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0017.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0018.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0019.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0020.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0021.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0022.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0023.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0024.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0025.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0026.jpg",
+        "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0027.jpg",
       ],
-      status: "Selling Fast",
-      name: "Westlands Heights",
+      status: "Available",
+      name: "JASPER APARTMENTS",
       location: "Westlands, Nairobi",
-      bedrooms: 2,
-      bathrooms: 2,
-      size: "1,800 sqft",
-      price: "KSh 18.5M",
-    },
-    {
-      id: "runda-villas",
-      images: [
-        "https://images.unsplash.com/photo-1764337362016-ae7923282ff6?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1709420838688-ccd0517d6a2d?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Coming Soon",
-      name: "Runda Villas",
-      location: "Runda, Nairobi",
-      bedrooms: 4,
-      bathrooms: 4,
-      size: "3,500 sqft",
-      price: "KSh 45M",
-    },
-    {
-      id: "kilimani-towers",
-      images: [
-        "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1662454419736-de132ff75638?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Available",
-      name: "Kilimani Towers",
-      location: "Kilimani, Nairobi",
-      bedrooms: 2,
-      bathrooms: 2,
-      size: "1,600 sqft",
-      price: "KSh 16M",
-    },
-    {
-      id: "lavington-court",
-      images: [
-        "https://images.unsplash.com/photo-1569571480156-6c3901ef7500?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1620086464194-5127366b51ea?auto=format&fit=max&w=1600&q=80",
-      ],
-      status: "Available",
-      name: "Lavington Court",
-      location: "Lavington, Nairobi",
       bedrooms: 3,
       bathrooms: 3,
-      size: "2,200 sqft",
-      price: "KSh 32M",
+      size: "1 / 2 / 3 Bedroom Apartments",
+      price: "From KES 8.5M",
+      description:
+        "Apartment development in Westlands with 1BR (KES 8.5M-9.5M), 2BR (KES 11.5M-16.5M), and 3BR (from KES 22.5M) options.",
     },
     {
-      id: "riverside-estate",
+      id: "juja-rafi",
       images: [
-        "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80",
-        "https://images.unsplash.com/photo-1669333490889-194e8f46a766?auto=format&fit=max&w=1600&q=80",
+        "/images/BUY/developments/Juja%20RAFI/DStudio%201.jpg",
+        "/images/BUY/developments/Juja%20RAFI/DStudio%202.jpg",
+        "/images/BUY/developments/Juja%20RAFI/DStudio%203.jpg",
+        "/images/BUY/developments/Juja%20RAFI/DStudio%204.jpg",
+        "/images/BUY/developments/Juja%20RAFI/IMG-20250805-WA0002.jpg",
+        "/images/BUY/developments/Juja%20RAFI/IMG-20250805-WA0003.jpg",
+        "/images/BUY/developments/Juja%20RAFI/IMG-20250805-WA0004.jpg",
+        "/images/BUY/developments/Juja%20RAFI/IMG-20250805-WA0005.jpg",
+        "/images/BUY/developments/Juja%20RAFI/IMG-20250805-WA0006.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Rafi%201%20bedroom%201.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Rafi%201%20bedroom%202.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Rafi%201%20bedroom%203.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Rafi%201%20bedroom%204.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Rafi%201%20bedroom%20M.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Studio%201.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Studio%202.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Studio%203.jpg",
+        "/images/BUY/developments/Juja%20RAFI/Studio%204.jpg",
       ],
-      status: "Selling Fast",
-      name: "Riverside Estate",
-      location: "Riverside Drive, Nairobi",
-      bedrooms: 4,
-      bathrooms: 4,
-      size: "3,200 sqft",
-      price: "KSh 52M",
+      status: "Available",
+      name: "JUJA RAFI APARTMENTS",
+      location: "Juja, Kiambu",
+      bedrooms: 1,
+      bathrooms: 1,
+      size: "Single & Double Bed Studios",
+      price: "From KES 2.4M",
+      description:
+        "Studio apartments in Juja with Single Bed Studios from KES 2.4M and Double Bed Studios from KES 4.2M.",
     },
+    {
+      id: "the-marquis",
+      images: [
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.09.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.10%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.10.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.11%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.11.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.12%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.12%20(2).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.12%20(3).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.12.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.13%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.13.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.14.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.15%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.15.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.16%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.16%20(2).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.16%20(3).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.16.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.17%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.17.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.18%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.18.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.19%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.19%20(2).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.19.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.20.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.21%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.21%20(2).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.21%20(3).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.21%20(4).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.21.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.22%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.22%20(2).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.22%20(3).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.22%20(4).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.22.jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.23%20(1).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.23%20(2).jpeg",
+        "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.23.jpeg",
+      ],
+      status: "Available",
+      name: "The Marquis",
+      location: "Kileleshwa, off Nyeri Road",
+      bedrooms: 5,
+      bathrooms: 5,
+      size: "2-5 BR Apartments & Penthouses",
+      price: "From KSh 23.2M",
+      description:
+        "Luxury apartments and penthouses with premium lifestyle amenities including infinity pool, gym, sauna, amphitheatre, jogging track, daycare, and a viewing deck over Lavington.",
+    }
   ];
+
+  const developmentPriority = ["citi-rise", "jasper-westlands-muthithi-road", "juja-rafi", "the-marquis"];
+  developments.sort((a, b) => {
+    const ai = developmentPriority.indexOf(a.id);
+    const bi = developmentPriority.indexOf(b.id);
+    if (ai === -1 && bi === -1) return 0;
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+  const visibleDevelopments = developments.filter((dev) => developmentPriority.includes(dev.id));
 
   return (
     <div className="min-h-screen bg-background">
@@ -184,10 +260,10 @@ export function DevelopmentsArchive({ onNavigate, onEnquire }: DevelopmentsArchi
       <section className="py-16">
         <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
-            <p className="text-muted-foreground">Showing {developments.length} developments</p>
+            <p className="text-muted-foreground">Showing {visibleDevelopments.length} developments</p>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {developments.map((dev) => (
+            {visibleDevelopments.map((dev) => (
               <PropertyCard
                 key={dev.id}
                 type="development"

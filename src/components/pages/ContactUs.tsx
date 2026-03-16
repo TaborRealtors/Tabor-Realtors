@@ -176,8 +176,8 @@ export function ContactUs({ onNavigate }: ContactUsProps) {
                   <h3 className="mb-1" style={{ color: "#0D402D" }}>
                     Phone
                   </h3>
-                  <a href="tel:+254708085761" className="text-muted-foreground transition-colors hover:text-primary">
-                    +254 708 085 761
+                  <a href="tel:+254717069619" className="text-muted-foreground transition-colors hover:text-primary">
+                    +254 717 069 619
                   </a>
                 </div>
               </div>

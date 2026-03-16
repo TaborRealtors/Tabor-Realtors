@@ -6,6 +6,7 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { BlogCard } from "@/components/BlogCard";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import { teamMembers } from "@/data/team";
 
 interface HomePageProps {
   onNavigate: (page: string, id?: string) => void;
@@ -13,6 +14,9 @@ interface HomePageProps {
 }
 
 export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
+  const pyume = teamMembers.find((member) => member.slug === "pyume-wambua");
+  const simon = teamMembers.find((member) => member.slug === "simon-waigwa");
+  const mark = teamMembers.find((member) => member.slug === "mark-nzau");
   return (
     <>
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
@@ -69,52 +73,69 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
             <PropertyCard
               type="development"
               images={[
-                "https://images.unsplash.com/photo-1669333490889-194e8f46a766?auto=format&fit=max&w=1600&q=80",
-                "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
+                "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A1.jpg",
+                "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST1.jpg",
               ]}
-              status="Just Launched"
-              name="The Gardens Residence"
-              location="Karen, Nairobi"
+              status="Available"
+              name="CITI RISE"
+              location="Westlands, Mogotio Road"
               bedrooms={3}
               bathrooms={3}
-              size="2,400 sqft"
-              price="KSh 28.5M"
-              onEnquire={() => onEnquire("The Gardens Residence")}
-              onViewDetails={() => onNavigate("development", "gardens-residence")}
+              size="2-3 BR (86.77-142.39 sqm)"
+              price="KSh 11.7M"
+              onEnquire={() => onEnquire("CITI RISE")}
+              onViewDetails={() => onNavigate("development", "citi-rise")}
             />
 
             <PropertyCard
               type="development"
               images={[
-                "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80",
-                "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
+                "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0014.jpg",
+                "/images/BUY/developments/Jasper%20Westlands,%20Muthithi%20Road/IMG-20250901-WA0015.jpg",
               ]}
-              status="Selling Fast"
-              name="Westlands Heights"
+              status="Available"
+              name="JASPER APARTMENTS"
               location="Westlands, Nairobi"
-              bedrooms={2}
-              bathrooms={2}
-              size="1,800 sqft"
-              price="KSh 18.5M"
-              onEnquire={() => onEnquire("Westlands Heights")}
-              onViewDetails={() => onNavigate("development", "westlands-heights")}
+              bedrooms={3}
+              bathrooms={3}
+              size="1 / 2 / 3 Bedroom Apartments"
+              price="KSh 8.5M"
+              onEnquire={() => onEnquire("JASPER APARTMENTS")}
+              onViewDetails={() => onNavigate("development", "jasper-westlands-muthithi-road")}
             />
 
             <PropertyCard
               type="development"
               images={[
-                "https://images.unsplash.com/photo-1764337362016-ae7923282ff6?auto=format&fit=max&w=1600&q=80",
-                "https://images.unsplash.com/photo-1709420838688-ccd0517d6a2d?auto=format&fit=max&w=1600&q=80",
+                "/images/BUY/developments/Juja%20RAFI/DStudio%201.jpg",
+                "/images/BUY/developments/Juja%20RAFI/Studio%201.jpg",
               ]}
-              status="Coming Soon"
-              name="Runda Villas"
-              location="Runda, Nairobi"
-              bedrooms={4}
-              bathrooms={4}
-              size="3,500 sqft"
-              price="KSh 45M"
-              onEnquire={() => onEnquire("Runda Villas")}
-              onViewDetails={() => onNavigate("development", "runda-villas")}
+              status="Available"
+              name="JUJA RAFI APARTMENTS"
+              location="Juja, Kiambu"
+              bedrooms={1}
+              bathrooms={1}
+              size="Single & Double Bed Studios"
+              price="KSh 2.4M"
+              onEnquire={() => onEnquire("JUJA RAFI APARTMENTS")}
+              onViewDetails={() => onNavigate("development", "juja-rafi")}
+            />
+
+            <PropertyCard
+              type="development"
+              images={[
+                "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.09.jpeg",
+                "/images/BUY/developments/The%20Marquis/WhatsApp%20Image%202026-01-18%20at%2019.12.10.jpeg",
+              ]}
+              status="Available"
+              name="The Marquis"
+              location="Kileleshwa, off Nyeri Road"
+              bedrooms={5}
+              bathrooms={5}
+              size="2-5 BR Apartments & Penthouses"
+              price="KSh 23.2M"
+              onEnquire={() => onEnquire("The Marquis")}
+              onViewDetails={() => onNavigate("development", "the-marquis")}
             />
           </div>
         </div>
@@ -142,53 +163,19 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
             <PropertyCard
               type="rental"
               images={[
-                "https://images.unsplash.com/photo-1617341623760-1919df79274c?auto=format&fit=max&w=1600&q=80",
-                "https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80",
-              ]}
-              status="Now Letting"
-              name="Kilimani Executive Apartment"
-              location="Kilimani, Nairobi"
-              bedrooms={2}
-              bathrooms={2}
-              size="1,400 sqft"
-              price="KSh 120,000"
-              priceLabel="Per Month"
-              onEnquire={() => onEnquire("Kilimani Executive Apartment")}
-              onViewDetails={() => onNavigate("rental", "kilimani-apartment")}
-            />
-
-            <PropertyCard
-              type="rental"
-              images={[
-                "https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80",
-                "https://images.unsplash.com/photo-1669333490889-194e8f46a766?auto=format&fit=max&w=1600&q=80",
+                "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-22.jpg",
+                "/images/RENT/residential/JUNCTION%20GARDEN/%E2%84%A2Black_Sky_Lenses-27.jpg",
               ]}
               status="Available"
-              name="Lavington Family Home"
+              name="JUNCTION GARDENS"
               location="Lavington, Nairobi"
-              bedrooms={4}
+              bedrooms={3}
               bathrooms={3}
-              size="3,000 sqft"
-              price="KSh 280,000"
+              size="3 Bedroom Townhouse"
+              price="KSh 160,000"
               priceLabel="Per Month"
-              onEnquire={() => onEnquire("Lavington Family Home")}
-              onViewDetails={() => onNavigate("rental", "lavington-home")}
-            />
-
-            <PropertyCard
-              type="rental"
-              images={[
-                "https://images.unsplash.com/photo-1694702740570-0a31ee1525c7?auto=format&fit=max&w=1600&q=80",
-                "https://images.unsplash.com/photo-1764337362016-ae7923282ff6?auto=format&fit=max&w=1600&q=80",
-              ]}
-              status="Available"
-              name="Westlands Office Space"
-              location="Westlands, Nairobi"
-              size="2,500 sqft"
-              price="KSh 230 PSF"
-              priceLabel="Per Month"
-              onEnquire={() => onEnquire("Westlands Office Space")}
-              onViewDetails={() => onNavigate("commercial-rental", "westlands-office")}
+              onEnquire={() => onEnquire("JUNCTION GARDENS")}
+              onViewDetails={() => onNavigate("rental", "junction-garden")}
             />
           </div>
         </div>
@@ -200,17 +187,17 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
             <div className="relative h-96 lg:h-[500px] rounded-lg overflow-hidden">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1759428807275-b798a80e2801?auto=format&fit=max&w=1600&q=80"
-                alt="About Nia Realtors"
+                alt="About Tabor Realtors"
                 className="w-full h-full object-cover"
               />
             </div>
 
             <div>
               <h2 className="mb-6" style={{ color: "#0D402D" }}>
-                About Nia Realtors
+                About Tabor Realtors
               </h2>
               <p className="text-muted-foreground mb-6">
-                Nia Realtors is Kenya&apos;s premier real estate destination, dedicated to connecting discerning clients with exceptional properties across the nation. With years of experience and deep market knowledge, we provide personalized service that transforms your property dreams into reality.
+                Tabor Realtors is Kenya&apos;s premier real estate destination, dedicated to connecting discerning clients with exceptional properties across the nation. With years of experience and deep market knowledge, we provide personalized service that transforms your property dreams into reality.
               </p>
               <p className="text-muted-foreground mb-6">
                 Our team of dedicated professionals brings unparalleled expertise in residential developments, luxury rentals, and commercial properties. We pride ourselves on our commitment to excellence, integrity, and client satisfaction.
@@ -247,30 +234,30 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <TeamMemberCard
-              image="https://images.unsplash.com/photo-1763478958776-ebd04b6459ee?auto=format&fit=max&w=800&q=80"
-              name="Sarah Kamau"
-              role="Managing Director"
-              email="sarah@niarealtors.co.ke"
-              phone="+254 700 111 111"
-              onViewProfile={() => onNavigate("team-profile", "sarah-kamau")}
+              image="/team-members/pyume-wambua.jpg"
+              name="Pyume Wambua"
+              role="Chief Executive Officer, Tabor Realtors"
+              email="pyume@taborrealtors.co.ke"
+              phone="+254 717 069 619"
+              onViewProfile={() => onNavigate("team-profile", "pyume-wambua")}
             />
 
             <TeamMemberCard
-              image="https://images.unsplash.com/photo-1581093805071-a04e696db334?auto=format&fit=max&w=800&q=80"
-              name="James Mwangi"
-              role="Head of Sales"
-              email="james@niarealtors.co.ke"
-              phone="+254 700 222 222"
-              onViewProfile={() => onNavigate("team-profile", "james-mwangi")}
+              image="/team-members/mark-nzau.jpg"
+              name="Mark Nzau"
+              role="Head of Investments"
+              email="mark@taborrealtors.co.ke"
+              phone="+254 724 224 793"
+              onViewProfile={() => onNavigate("team-profile", "mark-nzau")}
             />
 
             <TeamMemberCard
-              image="https://images.unsplash.com/photo-1763478958776-ebd04b6459ee?auto=format&fit=max&w=800&q=80"
-              name="Grace Wanjiru"
-              role="Senior Property Consultant"
-              email="grace@niarealtors.co.ke"
-              phone="+254 700 333 333"
-              onViewProfile={() => onNavigate("team-profile", "grace-wanjiru")}
+              image="/team-members/simon-waigwa.jpg"
+              name="Simon Waigwa"
+              role="Managing Partner, Tabor Realtors"
+              email="simon@taborrealtors.co.ke"
+              phone="+254 705 565 375"
+              onViewProfile={() => onNavigate("team-profile", "simon-waigwa")}
             />
           </div>
         </div>
@@ -296,45 +283,48 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <BlogCard
-              image="https://images.unsplash.com/photo-1759428807275-b798a80e2801?auto=format&fit=max&w=1600&q=80"
-              title="Investing in Kenya's Real Estate Market in 2025"
-              excerpt="Discover the key trends and opportunities shaping Kenya's property market this year."
-              author="Sarah Kamau"
-              date="Dec 1, 2025"
+              image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=max&w=1400&q=80"
+              title="Investment That Builds Long-Term Wealth"
+              excerpt="Property investment can build financial freedom through rental income, capital appreciation, and disciplined risk management."
+              author={pyume?.name ?? "Pyume Wambua"}
+              authorImage={pyume?.headshot}
+              date="Feb 23, 2026"
               readTime="5 min read"
               views={1234}
               comments={23}
               likes={89}
               category="Property Investment"
-              onReadMore={() => onNavigate("blog-post", "investing-kenya-2025")}
+              onReadMore={() => onNavigate("blog-post", "property-investment-that-builds-long-term-wealth")}
             />
 
             <BlogCard
-              image="https://images.unsplash.com/photo-1638454668466-e8dbd5462f20?auto=format&fit=max&w=1600&q=80"
-              title="Top 5 Neighborhoods in Nairobi for Young Professionals"
-              excerpt="Find the perfect location that matches your lifestyle and budget."
-              author="James Mwangi"
-              date="Nov 28, 2025"
-              readTime="7 min read"
+              image="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"
+              title="Desire, Lifestyle, and the Property You Choose"
+              excerpt="Lifestyle property choices should align design, comfort, amenities, and location with long-term personal priorities."
+              author={simon?.name ?? "Simon Waigwa"}
+              authorImage={simon?.headshot}
+              date="Feb 23, 2026"
+              readTime="5 min read"
               views={2156}
               comments={45}
               likes={167}
               category="Design & Lifestyle"
-              onReadMore={() => onNavigate("blog-post", "top-neighborhoods")}
+              onReadMore={() => onNavigate("blog-post", "desire-lifestyle-and-the-property-you-choose")}
             />
 
             <BlogCard
-              image="https://images.unsplash.com/photo-1622015663381-d2e05ae91b72?auto=format&fit=max&w=1600&q=80"
-              title="Understanding Property Development Timelines in Kenya"
-              excerpt="What to expect when investing in off-plan developments."
-              author="Grace Wanjiru"
-              date="Nov 25, 2025"
-              readTime="6 min read"
+              image="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80"
+              title="Market Trends Shaping Smart Buying Decisions"
+              excerpt="Reading demand, pricing, supply, and interest-rate signals helps buyers and investors make clearer decisions."
+              author={mark?.name ?? "Mark Nzau"}
+              authorImage={mark?.headshot}
+              date="Feb 23, 2026"
+              readTime="5 min read"
               views={987}
               comments={12}
               likes={54}
-              category="Property Investment"
-              onReadMore={() => onNavigate("blog-post", "development-timelines")}
+              category="Market Trends"
+              onReadMore={() => onNavigate("blog-post", "market-trends-shaping-smart-buying-decisions")}
             />
           </div>
         </div>
