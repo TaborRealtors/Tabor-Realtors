@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     quote: "Strong partnerships and trusted advice create lasting value.",
     email: "simon@taborrealtors.co.ke",
     phone: "+254 705 565 375",
-    linkedinUrl: "https://www.linkedin.com/company/tabor-realtors/",
+    linkedinUrl: "https://www.linkedin.com/in/dr-waigwa-s-kihuri-80b574103/",
   },
 ];
 
