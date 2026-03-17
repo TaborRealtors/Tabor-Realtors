@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { BlogCard } from "@/components/BlogCard";
 import { insights } from "@/data/insights";
-import { teamMembers } from "@/data/team";
+import { resolveTeamMember } from "@/data/team";
 
 interface BlogArchiveProps {
   onNavigate: (page: string, id?: string) => void;
@@ -35,7 +35,7 @@ export function BlogArchive({ onNavigate }: BlogArchiveProps) {
   ];
 
   const blogPosts = insights.map((item) => {
-    const authorProfile = teamMembers.find((member) => member.slug === item.authorSlug);
+    const authorProfile = resolveTeamMember({ slug: item.authorSlug, name: item.authorName });
 
     return {
       id: item.slug,
@@ -45,6 +45,7 @@ export function BlogArchive({ onNavigate }: BlogArchiveProps) {
       author: authorProfile?.name ?? item.authorName,
       authorSlug: authorProfile?.slug,
       authorImage: authorProfile?.headshot ?? "/team-members/pyume-wambua.jpg",
+      authorRole: authorProfile?.role,
       date: blogArchiveDateFormatter.format(new Date(item.publishedAt)),
       readTime: `${item.readTimeMinutes} min read`,
       views: item.views,
@@ -114,6 +115,7 @@ export function BlogArchive({ onNavigate }: BlogArchiveProps) {
                 excerpt={post.excerpt}
                 author={post.author}
                 authorImage={post.authorImage}
+                authorRole={post.authorRole}
                 date={post.date}
                 readTime={post.readTime}
                 views={post.views}

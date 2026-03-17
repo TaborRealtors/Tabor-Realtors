@@ -53,6 +53,7 @@ export function TeamArchive({ onNavigate }: TeamArchiveProps) {
                 image={member.headshot}
                 name={member.name}
                 role={member.role}
+                summary={member.shortBio}
                 email={member.email}
                 phone={member.phone}
                 onViewProfile={() => onNavigate("team-profile", member.slug)}

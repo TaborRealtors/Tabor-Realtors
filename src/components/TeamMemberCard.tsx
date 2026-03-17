@@ -7,6 +7,7 @@ interface TeamMemberCardProps {
   image: string;
   name: string;
   role: string;
+  summary?: string;
   email?: string;
   phone?: string;
   onViewProfile?: () => void;
@@ -16,6 +17,7 @@ export function TeamMemberCard({
   image,
   name,
   role,
+  summary,
   email,
   phone,
   onViewProfile,
@@ -34,7 +36,8 @@ export function TeamMemberCard({
       </div>
       <div className="p-6">
         <h3 className="mb-1 text-lg font-semibold text-[#0D402D]">{name}</h3>
-        <p className="mb-4 text-muted-foreground">{role}</p>
+        <p className="mb-2 text-sm font-medium text-primary">{role}</p>
+        {summary ? <p className="mb-4 line-clamp-3 text-sm text-muted-foreground">{summary}</p> : null}
         {email || phone ? (
           <div className="space-y-2 text-sm">
             {email ? (

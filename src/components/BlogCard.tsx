@@ -10,6 +10,7 @@ interface BlogCardProps {
   excerpt?: string;
   author: string;
   authorImage?: string;
+  authorRole?: string;
   date: string;
   readTime: string;
   views?: number;
@@ -26,6 +27,7 @@ export function BlogCard({
   excerpt,
   author,
   authorImage,
+  authorRole,
   date,
   readTime,
   views,
@@ -86,6 +88,7 @@ export function BlogCard({
               ) : null}
               <div>
                 <div className="text-sm font-medium">{author}</div>
+                {authorRole ? <div className="text-xs text-muted-foreground">{authorRole}</div> : null}
                 <div className="flex items-center space-x-3 text-xs text-muted-foreground">
                   <span className="flex items-center">
                     <Calendar className="mr-1 h-3 w-3" />
@@ -109,6 +112,7 @@ export function BlogCard({
               ) : null}
               <div>
                 <div className="text-sm font-medium">{author}</div>
+                {authorRole ? <div className="text-xs text-muted-foreground">{authorRole}</div> : null}
                 <div className="flex items-center space-x-3 text-xs text-muted-foreground">
                   <span className="flex items-center">
                     <Calendar className="mr-1 h-3 w-3" />

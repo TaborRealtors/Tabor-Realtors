@@ -2,7 +2,7 @@
 
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { Mail, Phone, Linkedin } from "lucide-react";
-import { getTeamMemberBySlug, teamMembers } from "@/data/team";
+import { getPrimaryTeamMember, getTeamMemberBySlug } from "@/data/team";
 
 interface TeamProfileProps {
   slug?: string;
@@ -10,7 +10,7 @@ interface TeamProfileProps {
 }
 
 export function TeamProfile({ slug, onNavigate }: TeamProfileProps) {
-  const profile = slug ? getTeamMemberBySlug(slug) : teamMembers[0];
+  const profile = slug ? getTeamMemberBySlug(slug) : getPrimaryTeamMember();
 
   if (!profile) {
     return (
@@ -40,6 +40,7 @@ export function TeamProfile({ slug, onNavigate }: TeamProfileProps) {
     <div className="min-h-screen bg-background">
       <section className="relative h-[500px] overflow-hidden">
         <ImageWithFallback
+          key={`${profile.slug}-hero`}
           src={profile.heroImage}
           alt={profile.name}
           className="h-full w-full object-cover"
@@ -71,6 +72,7 @@ export function TeamProfile({ slug, onNavigate }: TeamProfileProps) {
           <div className="lg:col-span-1">
             <div className="relative mb-6 h-[400px] overflow-hidden rounded-lg shadow-lg">
               <ImageWithFallback
+                key={`${profile.slug}-headshot`}
                 src={profile.headshot}
                 alt={profile.name}
                 className="h-full w-full object-cover"
@@ -134,7 +136,7 @@ export function TeamProfile({ slug, onNavigate }: TeamProfileProps) {
                 Expertise
               </h3>
               <div className="flex flex-wrap gap-2">
-                {[profile.role, "Client Advisory", "Property Strategy"].map((item) => (
+                {profile.expertise.map((item) => (
                   <span key={item} className="rounded-full bg-secondary px-4 py-2 text-sm">
                     {item}
                   </span>

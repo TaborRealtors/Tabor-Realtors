@@ -94,6 +94,7 @@ export interface TeamMember {
   role: string;
   shortBio: string;
   fullBio: string;
+  expertise: string[];
   headshot: string;
   heroImage: string;
   quote: string;

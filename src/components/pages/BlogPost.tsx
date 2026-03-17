@@ -3,7 +3,7 @@
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { BlogCard } from "@/components/BlogCard";
 import { insights } from "@/data/insights";
-import { teamMembers } from "@/data/team";
+import { resolveTeamMember } from "@/data/team";
 import { Calendar, Clock, Eye, Share2, Facebook, Linkedin } from "lucide-react";
 import { XLogo } from "@/components/icons/XLogo";
 
@@ -21,24 +21,29 @@ const blogPostDateFormatter = new Intl.DateTimeFormat("en-KE", {
 
 export function BlogPost({ slug, onNavigate }: BlogPostProps) {
   const post = insights.find((item) => item.slug === slug) ?? insights[0];
-  const authorProfile = teamMembers.find((member) => member.slug === post.authorSlug);
+  const authorProfile = resolveTeamMember({ slug: post.authorSlug, name: post.authorName });
   const recentPosts = insights
     .filter((item) => item.slug !== post.slug)
     .slice(0, 2)
-    .map((item) => ({
-      id: item.slug,
-      image: item.featuredImage,
-      title: item.title,
-      author: item.authorName,
-      authorSlug: item.authorSlug,
-      authorImage: teamMembers.find((member) => member.slug === item.authorSlug)?.headshot,
-      date: blogPostDateFormatter.format(new Date(item.publishedAt)),
-      readTime: `${item.readTimeMinutes} min read`,
-      views: item.views,
-      comments: item.commentsCount,
-      likes: item.likes,
-      category: item.category ?? "Insights",
-    }));
+    .map((item) => {
+      const recentAuthor = resolveTeamMember({ slug: item.authorSlug, name: item.authorName });
+
+      return {
+        id: item.slug,
+        image: item.featuredImage,
+        title: item.title,
+        author: recentAuthor?.name ?? item.authorName,
+        authorSlug: recentAuthor?.slug ?? item.authorSlug,
+        authorImage: recentAuthor?.headshot,
+        authorRole: recentAuthor?.role,
+        date: blogPostDateFormatter.format(new Date(item.publishedAt)),
+        readTime: `${item.readTimeMinutes} min read`,
+        views: item.views,
+        comments: item.commentsCount,
+        likes: item.likes,
+        category: item.category ?? "Insights",
+      };
+    });
   const mainContent = post.content.split("\n\nAbout ")[0];
   const paragraphs = mainContent.split("\n\n").filter(Boolean);
   const fallbackAbout = post.content.includes("\n\nAbout ") ? `About ${post.content.split("\n\nAbout ")[1]}` : "";
@@ -74,13 +79,16 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
               />
               <div>
                 {authorProfile ? (
-                  <button
-                    type="button"
-                    onClick={() => onNavigate("team-profile", authorProfile.slug)}
-                    className="font-medium text-[#0D402D] transition-colors hover:text-primary"
-                  >
-                    {authorProfile.name}
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => onNavigate("team-profile", authorProfile.slug)}
+                      className="font-medium text-[#0D402D] transition-colors hover:text-primary"
+                    >
+                      {authorProfile.name}
+                    </button>
+                    <div className="text-sm text-muted-foreground">{authorProfile.role}</div>
+                  </>
                 ) : (
                   <div className="font-medium">{post.authorName}</div>
                 )}
@@ -153,8 +161,11 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
                 <h3 className="mb-2 text-xl" style={{ color: "#0D402D" }}>
                   About {authorProfile?.name ?? post.authorName}
                 </h3>
+                {authorProfile?.role ? (
+                  <p className="mb-2 text-sm font-medium text-primary">{authorProfile.role}</p>
+                ) : null}
                 <p className="mb-4 text-muted-foreground">
-                  {authorProfile?.fullBio ??
+                  {authorProfile?.shortBio ??
                     fallbackAbout.replace(/^About\s+/, "")}
                 </p>
                 {authorProfile ? (
@@ -248,6 +259,7 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
                 title={post.title}
                 author={post.author}
                 authorImage={post.authorImage}
+                authorRole={post.authorRole}
                 date={post.date}
                 readTime={post.readTime}
                 views={post.views}

@@ -7,7 +7,7 @@ import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { BlogCard } from "@/components/BlogCard";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { insights } from "@/data/insights";
-import { teamMembers } from "@/data/team";
+import { resolveTeamMember, teamMembers } from "@/data/team";
 
 interface HomePageProps {
   onNavigate: (page: string, id?: string) => void;
@@ -23,7 +23,7 @@ const homeInsightDateFormatter = new Intl.DateTimeFormat("en-KE", {
 
 export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
   const latestInsights = insights.slice(0, 3).map((item) => {
-    const authorProfile = teamMembers.find((member) => member.slug === item.authorSlug);
+    const authorProfile = resolveTeamMember({ slug: item.authorSlug, name: item.authorName });
 
     return {
       id: item.slug,
@@ -33,6 +33,7 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
       author: authorProfile?.name ?? item.authorName,
       authorSlug: authorProfile?.slug,
       authorImage: authorProfile?.headshot ?? "/team-members/pyume-wambua.jpg",
+      authorRole: authorProfile?.role,
       date: homeInsightDateFormatter.format(new Date(item.publishedAt)),
       readTime: `${item.readTimeMinutes} min read`,
       views: item.views,
@@ -258,32 +259,18 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TeamMemberCard
-              image="/team-members/pyume-wambua.jpg"
-              name="Pyume Wambua"
-              role="Chief Executive Officer, Tabor Realtors"
-              email="pyume@taborrealtors.co.ke"
-              phone="+254 717 069 619"
-              onViewProfile={() => onNavigate("team-profile", "pyume-wambua")}
-            />
-
-            <TeamMemberCard
-              image="/team-members/mark-nzau.jpg"
-              name="Mark Nzau"
-              role="Head of Investments"
-              email="mark@taborrealtors.co.ke"
-              phone="+254 724 224 793"
-              onViewProfile={() => onNavigate("team-profile", "mark-nzau")}
-            />
-
-            <TeamMemberCard
-              image="/team-members/simon-waigwa.jpg"
-              name="Simon Waigwa"
-              role="Managing Partner, Tabor Realtors"
-              email="simon@taborrealtors.co.ke"
-              phone="+254 705 565 375"
-              onViewProfile={() => onNavigate("team-profile", "simon-waigwa")}
-            />
+            {teamMembers.map((member) => (
+              <TeamMemberCard
+                key={member.slug}
+                image={member.headshot}
+                name={member.name}
+                role={member.role}
+                summary={member.shortBio}
+                email={member.email}
+                phone={member.phone}
+                onViewProfile={() => onNavigate("team-profile", member.slug)}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -315,6 +302,7 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
                 excerpt={post.excerpt}
                 author={post.author}
                 authorImage={post.authorImage}
+                authorRole={post.authorRole}
                 date={post.date}
                 readTime={post.readTime}
                 views={post.views}
