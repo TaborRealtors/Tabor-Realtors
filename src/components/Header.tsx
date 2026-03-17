@@ -9,14 +9,14 @@ import { XLogo } from "@/components/icons/XLogo";
 
 interface HeaderProps {
   onSearchClick: () => void;
-  onAdminClick: () => void;
-  isAdmin: boolean;
 }
 
-export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
+export function Header({ onSearchClick }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+
+  const isActivePath = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   const navLink = (href: string, label: string, extra?: React.ReactNode) => (
     <div
@@ -26,7 +26,8 @@ export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
     >
       <Link
         href={href}
-        className={`py-2 transition-colors ${pathname.startsWith(href) ? "text-primary" : "text-foreground hover:text-primary"}`}
+        aria-current={isActivePath(href) ? "page" : undefined}
+        className={`py-2 transition-colors ${isActivePath(href) ? "text-primary" : "text-foreground hover:text-primary"}`}
       >
         {label}
       </Link>
@@ -75,42 +76,61 @@ export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
                 </div>
               ) : null
             ))}
-            <Link href="/about" className="text-foreground transition-colors hover:text-primary">
+            <Link
+              href="/about"
+              aria-current={isActivePath("/about") ? "page" : undefined}
+              className={`transition-colors ${isActivePath("/about") ? "text-primary" : "text-foreground hover:text-primary"}`}
+            >
               About Us
             </Link>
-            <Link href="/about/team" className="text-foreground transition-colors hover:text-primary">
+            <Link
+              href="/about/team"
+              aria-current={isActivePath("/about/team") ? "page" : undefined}
+              className={`transition-colors ${isActivePath("/about/team") ? "text-primary" : "text-foreground hover:text-primary"}`}
+            >
               Our Team
             </Link>
-            <Link href="/insights" className="text-foreground transition-colors hover:text-primary">
+            <Link
+              href="/insights"
+              aria-current={isActivePath("/insights") ? "page" : undefined}
+              className={`transition-colors ${isActivePath("/insights") ? "text-primary" : "text-foreground hover:text-primary"}`}
+            >
               Insights
             </Link>
-            <Link href="/contact" className="text-foreground transition-colors hover:text-primary">
+            <Link
+              href="/contact"
+              aria-current={isActivePath("/contact") ? "page" : undefined}
+              className={`transition-colors ${isActivePath("/contact") ? "text-primary" : "text-foreground hover:text-primary"}`}
+            >
               Contact
             </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
             <button
-              onClick={onSearchClick}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onSearchClick();
+              }}
               className="p-2 text-foreground transition-colors hover:text-primary"
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
             </button>
             <div className="hidden items-center space-x-3 lg:flex">
-              <a href="https://www.facebook.com/profile.php?id=61578951969809&rdid=Ncb82fbVg2pO9Ndn&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19mWADvSJL%2F#" className="text-foreground transition-colors hover:text-primary" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61578951969809&rdid=Ncb82fbVg2pO9Ndn&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19mWADvSJL%2F#" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-primary" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/niahavens" className="text-foreground transition-colors hover:text-primary" aria-label="Instagram">
+              <a href="https://www.instagram.com/niahavens" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-primary" aria-label="Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://x.com/TaborRealtors" className="text-foreground transition-colors hover:text-primary" aria-label="X">
+              <a href="https://x.com/TaborRealtors" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-primary" aria-label="X">
                 <XLogo className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/company/tabor-realtors/" className="text-foreground transition-colors hover:text-primary" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/tabor-realtors/" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-primary" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://www.tiktok.com/@niahavens" className="text-foreground transition-colors hover:text-primary" aria-label="TikTok">
+              <a href="https://www.tiktok.com/@niahavens" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-primary" aria-label="TikTok">
                 <Music2 className="h-5 w-5" />
               </a>
             </div>
@@ -118,6 +138,7 @@ export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-foreground lg:hidden"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -127,38 +148,88 @@ export function Header({ onSearchClick, onAdminClick, isAdmin }: HeaderProps) {
         {mobileMenuOpen ? (
           <div className="border-t border-border py-4 lg:hidden">
             <nav className="flex flex-col space-y-4">
-              <Link href="/buy" className="text-left text-foreground hover:text-primary">
+              <Link
+                href="/buy"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActivePath("/buy") ? "page" : undefined}
+                className="text-left text-foreground hover:text-primary"
+              >
                 Buy
               </Link>
               <div className="pl-4 space-y-2">
-                <Link href="/buy/developments" className="block text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  href="/buy/developments"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActivePath("/buy/developments") ? "page" : undefined}
+                  className="block text-sm text-muted-foreground hover:text-primary"
+                >
                   Developments
                 </Link>
-                <Link href="/buy" className="block text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  href="/buy"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActivePath("/buy") ? "page" : undefined}
+                  className="block text-sm text-muted-foreground hover:text-primary"
+                >
                   All Properties
                 </Link>
               </div>
-              <Link href="/rent" className="text-left text-foreground hover:text-primary">
+              <Link
+                href="/rent"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActivePath("/rent") ? "page" : undefined}
+                className="text-left text-foreground hover:text-primary"
+              >
                 Rent
               </Link>
               <div className="pl-4 space-y-2">
-                <Link href="/rent/residential" className="block text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  href="/rent/residential"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActivePath("/rent/residential") ? "page" : undefined}
+                  className="block text-sm text-muted-foreground hover:text-primary"
+                >
                   Residential
                 </Link>
-                <Link href="/rent/commercial" className="block text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  href="/rent/commercial"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActivePath("/rent/commercial") ? "page" : undefined}
+                  className="block text-sm text-muted-foreground hover:text-primary"
+                >
                   Commercial
                 </Link>
               </div>
-              <Link href="/about" className="text-left text-foreground hover:text-primary">
+              <Link
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActivePath("/about") ? "page" : undefined}
+                className="text-left text-foreground hover:text-primary"
+              >
                 About Us
               </Link>
-              <Link href="/about/team" className="text-left text-foreground hover:text-primary">
+              <Link
+                href="/about/team"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActivePath("/about/team") ? "page" : undefined}
+                className="text-left text-foreground hover:text-primary"
+              >
                 Our Team
               </Link>
-              <Link href="/insights" className="text-left text-foreground hover:text-primary">
+              <Link
+                href="/insights"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActivePath("/insights") ? "page" : undefined}
+                className="text-left text-foreground hover:text-primary"
+              >
                 Insights
               </Link>
-              <Link href="/contact" className="text-left text-foreground hover:text-primary">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActivePath("/contact") ? "page" : undefined}
+                className="text-left text-foreground hover:text-primary"
+              >
                 Contact
               </Link>
             </nav>

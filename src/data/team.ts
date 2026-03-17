@@ -14,6 +14,9 @@ export const teamMembers: TeamMember[] = [
       "/team-members/pyume-wambua.jpg",
     heroImage: "/team-members/pyume-wambua.jpg",
     quote: "Building dreams, creating value—one conversation at a time.",
+    email: "pyume@taborrealtors.co.ke",
+    phone: "+254 717 069 619",
+    linkedinUrl: "https://www.linkedin.com/company/tabor-realtors/",
   },
   {
     id: "team-mark",
@@ -28,6 +31,9 @@ export const teamMembers: TeamMember[] = [
       "/team-members/mark-nzau.jpg",
     heroImage: "/team-members/mark-nzau.jpg",
     quote: "Smart capital needs clear information and decisive execution.",
+    email: "mark@taborrealtors.co.ke",
+    phone: "+254 724 224 793",
+    linkedinUrl: "https://www.linkedin.com/company/tabor-realtors/",
   },
   {
     id: "team-simon",
@@ -42,5 +48,11 @@ export const teamMembers: TeamMember[] = [
       "/team-members/simon-waigwa.jpg",
     heroImage: "/team-members/simon-waigwa.jpg",
     quote: "Strong partnerships and trusted advice create lasting value.",
+    email: "simon@taborrealtors.co.ke",
+    phone: "+254 705 565 375",
+    linkedinUrl: "https://www.linkedin.com/company/tabor-realtors/",
   },
 ];
+
+export const getTeamMemberBySlug = (slug: string) =>
+  teamMembers.find((member) => member.slug === slug);

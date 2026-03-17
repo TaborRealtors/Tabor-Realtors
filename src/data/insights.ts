@@ -8,6 +8,7 @@ export const insights: BlogPost[] = [
     excerpt:
       "Property investment can build financial freedom through rental income, capital appreciation, and disciplined risk management.",
     authorName: "Pyume Wambua",
+    authorSlug: "pyume-wambua",
     publishedAt: "2026-02-23",
     readTimeMinutes: 5,
     featuredImage:
@@ -27,6 +28,7 @@ export const insights: BlogPost[] = [
     excerpt:
       "Lifestyle property choices should align design, comfort, amenities, and location with long-term personal priorities.",
     authorName: "Simon Waigwa",
+    authorSlug: "simon-waigwa",
     publishedAt: "2026-02-23",
     readTimeMinutes: 5,
     featuredImage:
@@ -46,6 +48,7 @@ export const insights: BlogPost[] = [
     excerpt:
       "Reading demand, pricing, supply, and interest-rate signals helps buyers and investors make clearer decisions.",
     authorName: "Mark Nzau",
+    authorSlug: "mark-nzau",
     publishedAt: "2026-02-23",
     readTimeMinutes: 5,
     featuredImage:

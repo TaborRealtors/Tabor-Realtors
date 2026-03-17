@@ -21,7 +21,7 @@ const blogPostDateFormatter = new Intl.DateTimeFormat("en-KE", {
 
 export function BlogPost({ slug, onNavigate }: BlogPostProps) {
   const post = insights.find((item) => item.slug === slug) ?? insights[0];
-  const authorProfile = teamMembers.find((member) => member.name === post.authorName);
+  const authorProfile = teamMembers.find((member) => member.slug === post.authorSlug);
   const recentPosts = insights
     .filter((item) => item.slug !== post.slug)
     .slice(0, 2)
@@ -30,7 +30,8 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
       image: item.featuredImage,
       title: item.title,
       author: item.authorName,
-      authorImage: teamMembers.find((member) => member.name === item.authorName)?.headshot,
+      authorSlug: item.authorSlug,
+      authorImage: teamMembers.find((member) => member.slug === item.authorSlug)?.headshot,
       date: blogPostDateFormatter.format(new Date(item.publishedAt)),
       readTime: `${item.readTimeMinutes} min read`,
       views: item.views,
@@ -72,7 +73,17 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
                 className="mr-4 h-12 w-12 rounded-full object-cover"
               />
               <div>
-                <div className="font-medium">{authorProfile?.name ?? post.authorName}</div>
+                {authorProfile ? (
+                  <button
+                    type="button"
+                    onClick={() => onNavigate("team-profile", authorProfile.slug)}
+                    className="font-medium text-[#0D402D] transition-colors hover:text-primary"
+                  >
+                    {authorProfile.name}
+                  </button>
+                ) : (
+                  <div className="font-medium">{post.authorName}</div>
+                )}
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                   <span className="flex items-center">
                     <Calendar className="mr-1 h-4 w-4" />
@@ -160,7 +171,7 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
 
           <div className="my-12">
             <h3 className="mb-6 text-xl" style={{ color: "#0D402D" }}>
-              Comments (23)
+              Comments ({post.commentsCount})
             </h3>
             <div className="space-y-6">
               {[
@@ -243,6 +254,7 @@ export function BlogPost({ slug, onNavigate }: BlogPostProps) {
                 comments={post.comments}
                 likes={post.likes}
                 category={post.category}
+                onAuthorClick={() => onNavigate("team-profile", post.authorSlug)}
                 onReadMore={() => onNavigate("blog-post", post.id)}
               />
             ))}

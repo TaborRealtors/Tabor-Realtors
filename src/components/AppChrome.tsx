@@ -26,7 +26,7 @@ export function AppChrome({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
-      <Header onSearchClick={() => setSearchOpen(true)} onAdminClick={() => setAdminLoginOpen(true)} isAdmin={isAdmin} />
+      <Header key={pathname} onSearchClick={() => setSearchOpen(true)} />
       <AdminBar isAdmin={isAdmin} onToggleAdmin={() => setIsAdmin(false)} />
       <EnquiryProvider value={{ openEnquiry }}>
         <main className="flex-1">{children}</main>

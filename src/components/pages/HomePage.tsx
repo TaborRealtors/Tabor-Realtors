@@ -6,6 +6,7 @@ import { PropertyCard } from "@/components/PropertyCard";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { BlogCard } from "@/components/BlogCard";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
+import { insights } from "@/data/insights";
 import { teamMembers } from "@/data/team";
 
 interface HomePageProps {
@@ -13,10 +14,34 @@ interface HomePageProps {
   onEnquire: (name: string) => void;
 }
 
+const homeInsightDateFormatter = new Intl.DateTimeFormat("en-KE", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
 export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
-  const pyume = teamMembers.find((member) => member.slug === "pyume-wambua");
-  const simon = teamMembers.find((member) => member.slug === "simon-waigwa");
-  const mark = teamMembers.find((member) => member.slug === "mark-nzau");
+  const latestInsights = insights.slice(0, 3).map((item) => {
+    const authorProfile = teamMembers.find((member) => member.slug === item.authorSlug);
+
+    return {
+      id: item.slug,
+      image: item.featuredImage,
+      title: item.title,
+      excerpt: item.excerpt,
+      author: authorProfile?.name ?? item.authorName,
+      authorSlug: authorProfile?.slug,
+      authorImage: authorProfile?.headshot ?? "/team-members/pyume-wambua.jpg",
+      date: homeInsightDateFormatter.format(new Date(item.publishedAt)),
+      readTime: `${item.readTimeMinutes} min read`,
+      views: item.views,
+      comments: item.commentsCount,
+      likes: item.likes,
+      category: item.category ?? "Insights",
+    };
+  });
+
   return (
     <>
       <section className="relative h-[600px] md:h-[700px] overflow-hidden">
@@ -73,7 +98,7 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
             <PropertyCard
               type="development"
               images={[
-                "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20+%20DSQ/A1.jpg",
+                "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedrom%20%2B%20DSQ/A1.jpg",
                 "/images/BUY/developments/CITI%20RISE/CITI%20RISE/3%20Bedroom/WST1.jpg",
               ]}
               status="Available"
@@ -282,50 +307,24 @@ export default function HomePage({ onNavigate, onEnquire }: HomePageProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <BlogCard
-              image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=max&w=1400&q=80"
-              title="Investment That Builds Long-Term Wealth"
-              excerpt="Property investment can build financial freedom through rental income, capital appreciation, and disciplined risk management."
-              author={pyume?.name ?? "Pyume Wambua"}
-              authorImage={pyume?.headshot}
-              date="Feb 23, 2026"
-              readTime="5 min read"
-              views={1234}
-              comments={23}
-              likes={89}
-              category="Property Investment"
-              onReadMore={() => onNavigate("blog-post", "property-investment-that-builds-long-term-wealth")}
-            />
-
-            <BlogCard
-              image="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"
-              title="Desire, Lifestyle, and the Property You Choose"
-              excerpt="Lifestyle property choices should align design, comfort, amenities, and location with long-term personal priorities."
-              author={simon?.name ?? "Simon Waigwa"}
-              authorImage={simon?.headshot}
-              date="Feb 23, 2026"
-              readTime="5 min read"
-              views={2156}
-              comments={45}
-              likes={167}
-              category="Design & Lifestyle"
-              onReadMore={() => onNavigate("blog-post", "desire-lifestyle-and-the-property-you-choose")}
-            />
-
-            <BlogCard
-              image="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80"
-              title="Market Trends Shaping Smart Buying Decisions"
-              excerpt="Reading demand, pricing, supply, and interest-rate signals helps buyers and investors make clearer decisions."
-              author={mark?.name ?? "Mark Nzau"}
-              authorImage={mark?.headshot}
-              date="Feb 23, 2026"
-              readTime="5 min read"
-              views={987}
-              comments={12}
-              likes={54}
-              category="Market Trends"
-              onReadMore={() => onNavigate("blog-post", "market-trends-shaping-smart-buying-decisions")}
-            />
+            {latestInsights.map((post) => (
+              <BlogCard
+                key={post.id}
+                image={post.image}
+                title={post.title}
+                excerpt={post.excerpt}
+                author={post.author}
+                authorImage={post.authorImage}
+                date={post.date}
+                readTime={post.readTime}
+                views={post.views}
+                comments={post.comments}
+                likes={post.likes}
+                category={post.category}
+                onAuthorClick={post.authorSlug ? () => onNavigate("team-profile", post.authorSlug) : undefined}
+                onReadMore={() => onNavigate("blog-post", post.id)}
+              />
+            ))}
           </div>
         </div>
       </section>

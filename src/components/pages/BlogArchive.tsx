@@ -3,77 +3,61 @@
 import { useState } from "react";
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { BlogCard } from "@/components/BlogCard";
+import { insights } from "@/data/insights";
 import { teamMembers } from "@/data/team";
 
 interface BlogArchiveProps {
   onNavigate: (page: string, id?: string) => void;
 }
 
+const blogArchiveDateFormatter = new Intl.DateTimeFormat("en-KE", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+const slugifyCategory = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
 export function BlogArchive({ onNavigate }: BlogArchiveProps) {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const pyume = teamMembers.find((member) => member.slug === "pyume-wambua");
-  const simon = teamMembers.find((member) => member.slug === "simon-waigwa");
-  const mark = teamMembers.find((member) => member.slug === "mark-nzau");
 
   const categories = [
     { id: "all", label: "All Posts" },
-    { id: "investment", label: "Property Investment" },
-    { id: "lifestyle", label: "Design & Lifestyle" },
-    { id: "market", label: "Market Trends" },
+    { id: "property-investment", label: "Property Investment" },
+    { id: "design-lifestyle", label: "Design & Lifestyle" },
+    { id: "market-trends", label: "Market Trends" },
   ];
 
-  const blogPosts = [
-    {
-      id: "property-investment-that-builds-long-term-wealth",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80",
-      title: "Investment That Builds Long-Term Wealth",
-      excerpt:
-        "Property investment can build financial freedom through rental income, capital appreciation, and disciplined risk management.",
-      author: pyume?.name ?? "Pyume Wambua",
-      authorImage: pyume?.headshot ?? "/team-members/pyume-wambua.jpg",
-      date: "Feb 23, 2026",
-      readTime: "5 min read",
-      views: 1234,
-      comments: 23,
-      likes: 89,
-      category: "Property Investment",
-    },
-    {
-      id: "desire-lifestyle-and-the-property-you-choose",
-      image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
-      title: "Desire, Lifestyle, and the Property You Choose",
-      excerpt:
-        "Lifestyle property choices should align design, comfort, amenities, and location with long-term personal priorities.",
-      author: simon?.name ?? "Simon Waigwa",
-      authorImage: simon?.headshot ?? "/team-members/simon-waigwa.jpg",
-      date: "Feb 23, 2026",
-      readTime: "5 min read",
-      views: 2156,
-      comments: 45,
-      likes: 167,
-      category: "Design & Lifestyle",
-    },
-    {
-      id: "market-trends-shaping-smart-buying-decisions",
-      image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
-      title: "Market Trends Shaping Smart Buying Decisions",
-      excerpt:
-        "Reading demand, pricing, supply, and interest-rate signals helps buyers and investors make clearer decisions.",
-      author: mark?.name ?? "Mark Nzau",
-      authorImage: mark?.headshot ?? "/team-members/mark-nzau.jpg",
-      date: "Feb 23, 2026",
-      readTime: "5 min read",
-      views: 987,
-      comments: 12,
-      likes: 54,
-      category: "Market Trends",
-    },
-  ];
+  const blogPosts = insights.map((item) => {
+    const authorProfile = teamMembers.find((member) => member.slug === item.authorSlug);
+
+    return {
+      id: item.slug,
+      image: item.featuredImage,
+      title: item.title,
+      excerpt: item.excerpt,
+      author: authorProfile?.name ?? item.authorName,
+      authorSlug: authorProfile?.slug,
+      authorImage: authorProfile?.headshot ?? "/team-members/pyume-wambua.jpg",
+      date: blogArchiveDateFormatter.format(new Date(item.publishedAt)),
+      readTime: `${item.readTimeMinutes} min read`,
+      views: item.views,
+      comments: item.commentsCount,
+      likes: item.likes,
+      category: item.category ?? "Insights",
+    };
+  });
 
   const filteredPosts =
     selectedCategory === "all"
       ? blogPosts
-      : blogPosts.filter((post) => post.category.toLowerCase().includes(selectedCategory.replace("-", " ")));
+      : blogPosts.filter((post) => slugifyCategory(post.category) === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
@@ -136,6 +120,7 @@ export function BlogArchive({ onNavigate }: BlogArchiveProps) {
                 comments={post.comments}
                 likes={post.likes}
                 category={post.category}
+                onAuthorClick={post.authorSlug ? () => onNavigate("team-profile", post.authorSlug) : undefined}
                 onReadMore={() => onNavigate("blog-post", post.id)}
               />
             ))}

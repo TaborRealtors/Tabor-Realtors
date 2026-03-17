@@ -2,39 +2,13 @@
 
 import { ImageWithFallback } from "@/components/figma/ImageWithFallback";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
+import { teamMembers } from "@/data/team";
 
 interface TeamArchiveProps {
   onNavigate: (page: string, id?: string) => void;
 }
 
 export function TeamArchive({ onNavigate }: TeamArchiveProps) {
-  const teamMembers = [
-    {
-      id: "pyume-wambua",
-      image: "/team-members/pyume-wambua.jpg",
-      name: "Pyume Wambua",
-      role: "Chief Executive Officer, Tabor Realtors",
-      email: "pyume@taborrealtors.co.ke",
-      phone: "+254 717 069 619",
-    },
-    {
-      id: "mark-nzau",
-      image: "/team-members/mark-nzau.jpg",
-      name: "Mark Nzau",
-      role: "Head of Investments",
-      email: "mark@taborrealtors.co.ke",
-      phone: "+254 724 224 793",
-    },
-    {
-      id: "simon-waigwa",
-      image: "/team-members/simon-waigwa.jpg",
-      name: "Simon Waigwa",
-      role: "Managing Partner, Tabor Realtors",
-      email: "simon@taborrealtors.co.ke",
-      phone: "+254 705 565 375",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <section className="relative h-[400px] overflow-hidden">
@@ -75,13 +49,13 @@ export function TeamArchive({ onNavigate }: TeamArchiveProps) {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member) => (
               <TeamMemberCard
-                key={member.id}
-                image={member.image}
+                key={member.slug}
+                image={member.headshot}
                 name={member.name}
                 role={member.role}
                 email={member.email}
                 phone={member.phone}
-                onViewProfile={() => onNavigate("team-profile", member.id)}
+                onViewProfile={() => onNavigate("team-profile", member.slug)}
               />
             ))}
           </div>

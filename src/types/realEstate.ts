@@ -97,6 +97,9 @@ export interface TeamMember {
   headshot: string;
   heroImage: string;
   quote: string;
+  email?: string;
+  phone?: string;
+  linkedinUrl?: string;
 }
 
 export interface BlogPost {
@@ -105,6 +108,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   authorName: string;
+  authorSlug: string;
   publishedAt: string;
   readTimeMinutes: number;
   featuredImage: string;
